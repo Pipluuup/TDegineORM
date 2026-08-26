@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# 测试缓存
+.pytest_cache/
+.tox/
+
+# 离线依赖与本地产物
+.deps/
+.wheels/
+.scratch/
+
+# 测试与示例（不入库）
+tests/
+examples/
+tools/gen_digitwin_models.py
+
+# 内部移植记录（去敏，不入库）
+docs/digitwin_mapping.md
+
+# IDE / 系统
+.idea/
+.vscode/
+*.swp

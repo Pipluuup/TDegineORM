@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tdorm"
+version = "0.5.0"
+description = "轻量级 TDengine 3.x 时序数据库 ORM：声明式模型、自动建表、批量写入、查询与删除"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "tdorm" }]
+keywords = ["tdengine", "timeseries", "orm", "iot", "时序数据库"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Database",
+    "Topic :: Software Development :: Libraries",
+]
+dependencies = ["taospy>=2.8.0"]
+
+[project.optional-dependencies]
+test = ["pytest>=7.0"]
+
+[tool.setuptools.packages.find]
+include = ["tdorm*"]
