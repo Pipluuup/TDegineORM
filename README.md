@@ -15,22 +15,6 @@
 pip install taospy        # 官方驱动（唯一运行时依赖，建议 >=2.8.0 以支持原生绑定）
 ```
 
-**受限环境（无法直连 PyPI，例如本机 TLS 外网被阻断）**：先确认本机是否有可用代理
-（检查系统设置 Internet Settings 的 ProxyServer，常见 7897 等 Clash 端口），
-再用本项目自带脚本经代理下载 wheel 并本地安装：
-
-```bash
-python tools/fetch_wheels.py                 # 下载全部依赖 wheel 到 .wheels/
-python -m pip install --no-index --find-links .wheels \
-    --target .deps taospy iso8601==1.0.2 requests typing-extensions==4.14.0 \
-    certifi charset-normalizer idna urllib3 pytest iniconfig packaging \
-    pluggy exceptiongroup tomli colorama pygments
-# 使用独立依赖环境运行（-S 跳过系统 site-packages 避免版本冲突）
-$env:PYTHONPATH = "$PWD\.deps" ; python -S -m pytest -q
-```
-
-> 脚本原理：代理 CONNECT 隧道 + 不校验证书的 SSL 手工下载 wheel（仅限受限沙箱，
-> 正常环境请直接用 pip）。taospy 钉死 `iso8601==1.0.2`、`typing-extensions<4.15.0`。
 
 ## 快速上手
 
