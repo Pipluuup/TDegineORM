@@ -15,6 +15,23 @@
 pip install taospy        # 官方驱动（唯一运行时依赖，建议 >=2.8.0 以支持原生绑定）
 ```
 
+**从本仓库安装**（仓库已公开，无需账号）：
+
+```bash
+pip install "tdorm @ git+https://github.com/Pipluuup/TDegineORM.git"
+# 等效写法： pip install git+https://github.com/Pipluuup/TDegineORM.git
+```
+
+写入其他项目的 `requirements.txt`：
+
+```text
+tdorm @ git+https://github.com/Pipluuup/TDegineORM.git
+```
+
+> pip 会读取仓库内 `pyproject.toml` 自动构建并安装运行时依赖 `taospy>=2.8.0`。
+> `taospy` 惰性加载：连接前无需驱动，可先 `import tdorm` 做模型定义与 SQL 级单测。
+> 详细安装与使用见 [`docs/install_and_use.md`](docs/install_and_use.md)。
+
 
 ## 快速上手
 
